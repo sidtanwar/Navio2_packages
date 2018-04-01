@@ -1,0 +1,4 @@
+<launch>
+  <node name="navio2_steering_ctrl" pkg="navio2"  type="steering_ctrl.py" launch-prefix="sudo">
+  </node>
+</launch>
