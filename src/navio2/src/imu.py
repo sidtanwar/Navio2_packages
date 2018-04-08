@@ -13,7 +13,9 @@ def imu_publisher():
     
     while not rospy.is_shutdown()
         m9a, m9g, m9m = imu.getMotion9();
-        data = " Gyr: {:+8.3f}".format(m9g[0]) + ", {:+8.3f}".format(m9g[1]) + ", {:+8.3f}".format(m9g[2])
+        accel_data = " Accel: {:+8.3f}".format(m9a[0]) + ", {:+8.3f}".format(m9a[1]) + ", {:+8.3f}".format(m9a[2])
+        gyro_data = " Gyr: {:+8.3f}".format(m9g[0]) + ", {:+8.3f}".format(m9g[1]) + ", {:+8.3f}".format(m9g[2])
+        data = accel_data + " " + gyro_data
         rospy.loginfo(data)
         pub.publish(data)
         rate.sleep()
